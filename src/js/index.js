@@ -145,21 +145,14 @@ console.log(swapFirstSecond(wordsArr));
 
 // 2 destructuring
 
-const firstEqual = (array, x) => {
+const firstEqual = (array, letter) => {
   const [[a], [b], [c], [d], [e], [f], [g], [h]] = array;
-  if (
-    a === x &&
-    b === x &&
-    c === x &&
-    d === x &&
-    f === x &&
-    g === x &&
-    h === x
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+
+  const newArray = [a, b, c, d, e, f, g, h];
+
+  const isEqual = newArray.every(item => item === letter);
+  
+  return isEqual;
 };
 
 console.log(firstEqual(wordsArr2, 'r'));
