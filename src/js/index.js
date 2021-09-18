@@ -26,8 +26,26 @@ const person = {
   eyeColor: 'blue',
 };
 
-const wordsArr = ["apple", "car", "window", "arm", "pencil", "banana", "face", "leg"];
-const wordsArr2 = ["red", "rumble", "round", "risk", "robot"];
+const wordsArr = [
+  'apple',
+  'car',
+  'window',
+  'arm',
+  'pencil',
+  'banana',
+  'face',
+  'leg',
+];
+const wordsArr2 = [
+  'red',
+  'rumble',
+  'round',
+  'risk',
+  'robot',
+  'rinocerose',
+  'riddle',
+  'radish',
+];
 
 // 1 -   destructuring
 const hasId = (object) => {
@@ -78,7 +96,7 @@ console.log(excludeId(person));
 // 6 - filter
 
 const wordsStartingWithA = (array) => {
-  const newArr = array.filter(arr => arr[0] === "a");
+  const newArr = array.filter((arr) => arr[0] === 'a');
   return newArr;
 };
 
@@ -87,8 +105,7 @@ console.log(wordsStartingWithA(wordsArr));
 // 7 - Join
 
 const concat = (arr) => {
-  
-  const newArr = arr.join(" | ");
+  const newArr = arr.join(' | ');
   return newArr;
 };
 
@@ -97,8 +114,7 @@ console.log(concat(peopleArr));
 // 7 - map
 
 const multArray = (array, x) => {
-  
-  const newArr = array.map(arr => arr * x);
+  const newArr = array.map((arr) => arr * x);
   return newArr;
 };
 
@@ -107,7 +123,6 @@ console.log(multArray(numArr, 2));
 // 8 - reduce
 
 const calcMult = (array) => {
-  
   const result = array.reduce((multNum, arr) => multNum * arr, 1);
   return result;
 };
@@ -119,24 +134,32 @@ console.log(calcMult(numArr));
 // 1 spread
 
 const swapFirstSecond = (array) => {
-
-   let newArray = [...array];
-   newArray[0] = array[1];
-   newArray[1] = array[0];
+  let newArray = [...array];
+  newArray[0] = array[1];
+  newArray[1] = array[0];
 
   return newArray;
 };
 
 console.log(swapFirstSecond(wordsArr));
 
-// 2 firstEqual
+// 2 destructuring
 
-const firstEqual = (array, a) => {
-const {firstLetter, ...rest} = array
-const isFirstEqual = array.map(arr => arr[firstLetter] === a);
-return isFirstEqual
-
+const firstEqual = (array, x) => {
+  const [[a], [b], [c], [d], [e], [f], [g], [h]] = array;
+  if (
+    a === x &&
+    b === x &&
+    c === x &&
+    d === x &&
+    f === x &&
+    g === x &&
+    h === x
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-console.log(firstEqual(wordsArr2, "a"));
-
+console.log(firstEqual(wordsArr2, 'r'));
